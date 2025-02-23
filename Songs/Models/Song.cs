@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Songs.Models;
 
+[Index(nameof(Title), IsUnique = true)]
 public class Song
 {
     public int Id { get; set; }

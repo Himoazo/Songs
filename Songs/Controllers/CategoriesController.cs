@@ -93,6 +93,11 @@ namespace Songs.Controllers
 
             Category category = new Category { Genre = categoryDto.Genre};
 
+            if(_context.Categories.Any(c => c.Genre == categoryDto.Genre))
+            {
+                return BadRequest("Category exists already");
+            }
+
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 

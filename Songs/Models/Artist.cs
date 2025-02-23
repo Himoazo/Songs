@@ -1,8 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Humanizer.Localisation;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Songs.Models;
 
+[Index(nameof(ArtistName), IsUnique = true)]
 public class Artist
 {
     public int Id { get; set; }

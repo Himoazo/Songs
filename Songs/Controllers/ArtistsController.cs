@@ -101,6 +101,11 @@ namespace Songs.Controllers
                 Nationality = artistDto.Nationality
             };
 
+            if(_context.Artists.Any(a => a.ArtistName == artistDto.ArtistName))
+            {
+                return BadRequest("Artist already exists in db");
+            }
+
             _context.Artists.Add(artist);
             await _context.SaveChangesAsync();
 

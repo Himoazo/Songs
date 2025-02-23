@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Songs.Models;
 
+[Index(nameof(Genre), IsUnique = true)]
 public class Category
 {
     public int Id { get; set; }

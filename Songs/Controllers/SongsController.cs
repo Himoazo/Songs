@@ -137,7 +137,10 @@ namespace Songs.Controllers
                 Category = category
             };
 
-
+            if(_context.Songs.Any(s => s.Title == songDto.Title))
+            {
+                return BadRequest("You can't save the same song more than once. There's already a saved song with this title.");
+            }
             _context.Songs.Add(NewSong);
             await _context.SaveChangesAsync();
 
